@@ -56,22 +56,23 @@ export const useNearbyCities = (stateSlug: string, citySlug: string, lat: number
   return useQuery({
     queryKey: ["nearby-cities", stateSlug, citySlug, lat, lon],
     queryFn: async () => {
+      // Fetch ALL cities in the state so we can sort by distance properly
       const { data, error } = await supabase
         .from("cities")
         .select("*")
         .eq("state_slug", stateSlug)
-        .neq("city_slug", citySlug)
-        .limit(limit);
+        .neq("city_slug", citySlug);
       if (error) throw error;
-      // Sort by distance client-side
-      if (lat != null && lon != null && data) {
-        return data.sort((a, b) => {
+      if (!data) return [];
+      // Sort by geographic distance, then take closest N
+      if (lat != null && lon != null) {
+        data.sort((a, b) => {
           const distA = Math.sqrt(Math.pow((a.latitude ?? 0) - lat, 2) + Math.pow((a.longitude ?? 0) - lon, 2));
           const distB = Math.sqrt(Math.pow((b.latitude ?? 0) - lat, 2) + Math.pow((b.longitude ?? 0) - lon, 2));
           return distA - distB;
         });
       }
-      return data;
+      return data.slice(0, limit);
     },
     enabled: !!stateSlug && !!citySlug,
     staleTime: 1000 * 60 * 30,
