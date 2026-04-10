@@ -122,9 +122,16 @@ const CityPage = () => {
               <div className="border rounded-lg p-8 text-center">
                 <p className="text-lg font-semibold mb-2">We're still adding pools for {city.city_name}</p>
                 <p className="text-muted-foreground mb-4">Know a public pool here? Let us know!</p>
-                <Button asChild variant="outline">
-                  <a href={`mailto:derek@poolrentalnearme.com?subject=Pool suggestion for ${city.city_name}`}>Suggest a Pool</a>
-                </Button>
+                <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                  <Button asChild>
+                    <a href={`https://www.google.com/maps/search/public+swimming+pool+${encodeURIComponent(city.city_name)}+${encodeURIComponent(city.state_abbr)}`} target="_blank" rel="noopener noreferrer">
+                      <MapPin className="h-4 w-4 mr-1" /> Search Pools on Google Maps
+                    </a>
+                  </Button>
+                  <Button asChild variant="outline">
+                    <a href={`mailto:derek@poolrentalnearme.com?subject=Pool suggestion for ${city.city_name}, ${city.state_abbr}&body=Pool name:%0AAddress:%0AWebsite (if known):`}>Suggest a Pool</a>
+                  </Button>
+                </div>
               </div>
             ) : (
               pools!.map((pool) => (
