@@ -13,4 +13,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://www.poolrentalnearme.com/sitemap.xml
+Sitemap: https://www.poolrentalnearme.com/public-pools-sitemap.xml
