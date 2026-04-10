@@ -1,16 +1,28 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { Link } from "react-router-dom";
+import Layout from "@/components/layout/Layout";
+import { Button } from "@/components/ui/button";
 
-// IMPORTANT: Fully REPLACE this with your own code
-const PlaceholderIndex = () => {
-  // PLACEHOLDER: Replace this entire return statement with the user's app.
-  // The inline background color is intentionally not part of the design system.
+const Index = () => {
   return (
-    <div className="flex min-h-screen items-center justify-center" style={{ backgroundColor: '#fcfbf8' }}>
-      <img data-lovable-blank-page-placeholder="REMOVE_THIS" src="/placeholder.svg" alt="Your app will live here!" />
-    </div>
+    <Layout>
+      <div className="flex min-h-[80vh] items-center justify-center">
+        <div className="text-center max-w-xl px-4">
+          <h1 className="text-4xl font-extrabold mb-4">PoolRentalNearMe.com</h1>
+          <p className="text-muted-foreground text-lg mb-8">
+            Find public pools near you or rent a private backyard pool.
+          </p>
+          <div className="flex gap-4 justify-center">
+            <Button asChild size="lg">
+              <Link to="/public-pools">Browse Public Pools</Link>
+            </Button>
+            <Button asChild size="lg" variant="outline">
+              <a href="https://www.poolrentalnearme.com" target="_blank" rel="noopener noreferrer">Rent a Private Pool</a>
+            </Button>
+          </div>
+        </div>
+      </div>
+    </Layout>
   );
 };
-
-const Index = PlaceholderIndex;
 
 export default Index;
