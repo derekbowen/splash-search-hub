@@ -14,7 +14,223 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      cities: {
+        Row: {
+          city_name: string
+          city_slug: string
+          created_at: string
+          exclusivity_score: number | null
+          id: string
+          latitude: number | null
+          longitude: number | null
+          meta_description: string | null
+          meta_title: string | null
+          pool_count: number | null
+          population: number | null
+          population_score: number | null
+          priority_score: number | null
+          priority_tier: string | null
+          prnm_exclusive: boolean | null
+          prnm_url: string | null
+          state_abbr: string
+          state_density_score: number | null
+          state_id: string
+          state_slug: string
+          swimply_has_page: boolean | null
+        }
+        Insert: {
+          city_name: string
+          city_slug: string
+          created_at?: string
+          exclusivity_score?: number | null
+          id?: string
+          latitude?: number | null
+          longitude?: number | null
+          meta_description?: string | null
+          meta_title?: string | null
+          pool_count?: number | null
+          population?: number | null
+          population_score?: number | null
+          priority_score?: number | null
+          priority_tier?: string | null
+          prnm_exclusive?: boolean | null
+          prnm_url?: string | null
+          state_abbr: string
+          state_density_score?: number | null
+          state_id: string
+          state_slug: string
+          swimply_has_page?: boolean | null
+        }
+        Update: {
+          city_name?: string
+          city_slug?: string
+          created_at?: string
+          exclusivity_score?: number | null
+          id?: string
+          latitude?: number | null
+          longitude?: number | null
+          meta_description?: string | null
+          meta_title?: string | null
+          pool_count?: number | null
+          population?: number | null
+          population_score?: number | null
+          priority_score?: number | null
+          priority_tier?: string | null
+          prnm_exclusive?: boolean | null
+          prnm_url?: string | null
+          state_abbr?: string
+          state_density_score?: number | null
+          state_id?: string
+          state_slug?: string
+          swimply_has_page?: boolean | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "cities_state_id_fkey"
+            columns: ["state_id"]
+            isOneToOne: false
+            referencedRelation: "states"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      public_pools: {
+        Row: {
+          address: string | null
+          amenities: string[] | null
+          city: string | null
+          city_id: string
+          created_at: string
+          description: string | null
+          google_maps_url: string | null
+          google_place_id: string | null
+          hours_json: Json | null
+          id: string
+          image_url: string | null
+          is_active: boolean | null
+          latitude: number | null
+          longitude: number | null
+          name: string
+          phone: string | null
+          pool_type: string | null
+          price_adult: string | null
+          price_child: string | null
+          price_notes: string | null
+          rating: number | null
+          review_count: number | null
+          state: string | null
+          updated_at: string
+          website: string | null
+          zip: string | null
+        }
+        Insert: {
+          address?: string | null
+          amenities?: string[] | null
+          city?: string | null
+          city_id: string
+          created_at?: string
+          description?: string | null
+          google_maps_url?: string | null
+          google_place_id?: string | null
+          hours_json?: Json | null
+          id?: string
+          image_url?: string | null
+          is_active?: boolean | null
+          latitude?: number | null
+          longitude?: number | null
+          name: string
+          phone?: string | null
+          pool_type?: string | null
+          price_adult?: string | null
+          price_child?: string | null
+          price_notes?: string | null
+          rating?: number | null
+          review_count?: number | null
+          state?: string | null
+          updated_at?: string
+          website?: string | null
+          zip?: string | null
+        }
+        Update: {
+          address?: string | null
+          amenities?: string[] | null
+          city?: string | null
+          city_id?: string
+          created_at?: string
+          description?: string | null
+          google_maps_url?: string | null
+          google_place_id?: string | null
+          hours_json?: Json | null
+          id?: string
+          image_url?: string | null
+          is_active?: boolean | null
+          latitude?: number | null
+          longitude?: number | null
+          name?: string
+          phone?: string | null
+          pool_type?: string | null
+          price_adult?: string | null
+          price_child?: string | null
+          price_notes?: string | null
+          rating?: number | null
+          review_count?: number | null
+          state?: string | null
+          updated_at?: string
+          website?: string | null
+          zip?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "public_pools_city_id_fkey"
+            columns: ["city_id"]
+            isOneToOne: false
+            referencedRelation: "cities"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      states: {
+        Row: {
+          abbreviation: string
+          created_at: string
+          id: string
+          latitude: number | null
+          longitude: number | null
+          meta_description: string | null
+          meta_title: string | null
+          name: string
+          pool_count: number | null
+          population: number | null
+          slug: string
+        }
+        Insert: {
+          abbreviation: string
+          created_at?: string
+          id?: string
+          latitude?: number | null
+          longitude?: number | null
+          meta_description?: string | null
+          meta_title?: string | null
+          name: string
+          pool_count?: number | null
+          population?: number | null
+          slug: string
+        }
+        Update: {
+          abbreviation?: string
+          created_at?: string
+          id?: string
+          latitude?: number | null
+          longitude?: number | null
+          meta_description?: string | null
+          meta_title?: string | null
+          name?: string
+          pool_count?: number | null
+          population?: number | null
+          slug?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
