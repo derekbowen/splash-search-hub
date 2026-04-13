@@ -131,6 +131,16 @@ const StatePage = () => {
         )}
       </section>
 
+      {/* Featured Private Pools in this state */}
+      <div className="container">
+        <FeaturedPrivatePools
+          stateAbbr={state.abbreviation}
+          count={4}
+          heading={`Private Pools for Rent in ${state.name}`}
+          subheading={`Skip the crowds — book a private backyard pool from $25/hr.`}
+        />
+      </div>
+
       <CtaBanner stateName={state.name} />
 
       {nearbyStates.length > 0 && (

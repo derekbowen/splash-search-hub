@@ -361,6 +361,16 @@ const CityPage = () => {
         <StickyCtaSidebar cityName={city.city_name} prnmUrl={city.prnm_url || undefined} />
       </div>
 
+      {/* Featured Private Pools */}
+      <div className="container">
+        <FeaturedPrivatePools
+          stateAbbr={city.state_abbr}
+          count={4}
+          heading={`Private Pools Near ${city.city_name}`}
+          subheading="No crowds, no lanes — just your own private pool by the hour."
+        />
+      </div>
+
       {/* Nearby Cities */}
       {nearbyCities && nearbyCities.length > 0 && (
         <section className="bg-muted/50 py-12">

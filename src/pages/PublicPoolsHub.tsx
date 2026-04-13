@@ -187,6 +187,11 @@ const PublicPoolsHub = () => {
         </section>
       )}
 
+      {/* Featured Private Pools */}
+      <div className="container">
+        <FeaturedPrivatePools count={4} heading="Why Wait? Rent a Private Pool Instead" subheading="Real pools from real hosts — book by the hour, no membership needed." />
+      </div>
+
       {/* CTA */}
       <CtaBanner />
 
