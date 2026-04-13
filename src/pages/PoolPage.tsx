@@ -257,16 +257,23 @@ const PoolPage = () => {
           <div className="flex-1 space-y-10">
 
             {/* Image */}
-            {pool.image_url && (
-              <div className="rounded-lg overflow-hidden border">
+            <div className="rounded-lg overflow-hidden border bg-gradient-to-br from-blue-100 to-cyan-50">
+              {pool.image_url ? (
                 <img
                   src={pool.image_url}
                   alt={`${pool.name} public swimming pool in ${city.city_name}, ${city.state_abbr}`}
                   className="w-full h-64 md:h-96 object-cover"
                   loading="eager"
+                  onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
                 />
-              </div>
-            )}
+              ) : (
+                <div className="w-full h-64 md:h-96 flex flex-col items-center justify-center text-muted-foreground">
+                  <Waves className="h-16 w-16 mb-3 text-primary/40" />
+                  <p className="text-lg font-medium">{pool.name}</p>
+                  <p className="text-sm">{city.city_name}, {city.state_abbr}</p>
+                </div>
+              )}
+            </div>
 
             {/* ── About ── */}
             <article className="prose prose-sm max-w-none">
