@@ -205,6 +205,8 @@ const PoolPage = () => {
         jsonLd={allJsonLd}
         ogImage={pool.image_url || undefined}
         ogType="place"
+        geoRegion={`US-${pool.state || ""}`}
+        geoPlacename={`${pool.city || ""}, ${pool.state || ""}`}
       />
 
       {/* ━━━ Hero ━━━ */}

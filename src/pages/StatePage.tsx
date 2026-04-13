@@ -64,6 +64,8 @@ const StatePage = () => {
         description={state.meta_description || `Find public and community swimming pools across ${state.name}. Hours, prices, ratings & directions.`}
         canonical={`https://www.poolrentalnearme.com/public-pools/${state.slug}/`}
         jsonLd={breadcrumbJsonLd}
+        geoRegion={`US-${state.abbreviation}`}
+        geoPlacename={state.name}
       />
 
       <section className="relative bg-prnm-light-blue py-12 md:py-16">
