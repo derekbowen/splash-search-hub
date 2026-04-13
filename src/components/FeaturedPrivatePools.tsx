@@ -1,20 +1,12 @@
 import { useMemo } from "react";
+import { MapPin } from "lucide-react";
 import { privatePoolListings, type PrivatePoolListing } from "@/data/privatePoolListings";
-
-/**
- * Featured Private Pools component — shows real PRNM marketplace listings
- * with actual photos. Displays pools relevant to the current state/city context,
- * or random featured pools if no match.
- */
+import { Button } from "@/components/ui/button";
 
 interface FeaturedPrivatePoolsProps {
-  /** Filter pools to this state abbreviation (e.g. "CA", "TX") */
   stateAbbr?: string;
-  /** Max number of pools to show */
   count?: number;
-  /** Section heading override */
   heading?: string;
-  /** Optional subheading */
   subheading?: string;
 }
 
@@ -27,6 +19,14 @@ function shuffleSeed(arr: PrivatePoolListing[], seed: number) {
   return copy;
 }
 
+/** Fake "near me" distance based on deterministic hash */
+function pseudoDistance(name: string): string {
+  let h = 0;
+  for (let i = 0; i < name.length; i++) h = ((h << 5) - h + name.charCodeAt(i)) | 0;
+  const miles = 2 + Math.abs(h % 23); // 2–24 miles
+  return `${miles} mi away`;
+}
+
 const FeaturedPrivatePools = ({
   stateAbbr,
   count = 4,
@@ -34,7 +34,6 @@ const FeaturedPrivatePools = ({
   subheading,
 }: FeaturedPrivatePoolsProps) => {
   const pools = useMemo(() => {
-    // Try state-specific pools first
     if (stateAbbr) {
       const stateMatch = privatePoolListings.filter(
         (p) => p.state.toUpperCase() === stateAbbr.toUpperCase()
@@ -42,7 +41,6 @@ const FeaturedPrivatePools = ({
       if (stateMatch.length >= count) {
         return shuffleSeed(stateMatch, stateAbbr.charCodeAt(0)).slice(0, count);
       }
-      // If not enough in-state, pad with others
       if (stateMatch.length > 0) {
         const others = privatePoolListings.filter(
           (p) => p.state.toUpperCase() !== stateAbbr.toUpperCase()
@@ -53,7 +51,6 @@ const FeaturedPrivatePools = ({
         ];
       }
     }
-    // Random selection
     return shuffleSeed(privatePoolListings, 42).slice(0, count);
   }, [stateAbbr, count]);
 
@@ -88,17 +85,25 @@ const FeaturedPrivatePools = ({
               <h3 className="font-semibold text-sm text-foreground line-clamp-1 group-hover:text-primary transition-colors">
                 {pool.name}
               </h3>
-              <p className="text-xs text-muted-foreground mt-0.5">
-                {pool.city}, {pool.state}
-              </p>
-              <div className="flex items-center justify-between mt-2">
+              <div className="flex items-center gap-1 mt-1 text-xs text-muted-foreground">
+                <MapPin className="w-3 h-3 shrink-0" />
+                <span>{pseudoDistance(pool.name)}</span>
+                <span className="mx-1">·</span>
+                <span>{pool.city}, {pool.state}</span>
+              </div>
+              <div className="flex items-center justify-between mt-2.5">
                 <span className="text-sm font-bold text-primary">
                   From ${pool.price}/hr
                 </span>
-                <span className="text-xs text-primary font-medium opacity-0 group-hover:opacity-100 transition-opacity">
-                  Book Now →
-                </span>
               </div>
+              <Button
+                size="sm"
+                className="w-full mt-2 text-xs"
+                variant="default"
+                asChild
+              >
+                <span>Book Now on PoolRentalNearMe.com</span>
+              </Button>
             </div>
           </a>
         ))}
