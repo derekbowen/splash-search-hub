@@ -589,6 +589,14 @@ const PoolPage = () => {
               </div>
             </div>
 
+            {/* ━━━ Featured Private Pools ━━━ */}
+            <FeaturedPrivatePools
+              stateAbbr={city.state_abbr}
+              count={4}
+              heading={`Private Pools Near ${city.city_name}`}
+              subheading="No crowds, no lanes — just your own private pool by the hour."
+            />
+
             {/* ━━━ FAQ ━━━ */}
             <div className="max-w-3xl">
               <h2 className="text-xl font-bold mb-2">{pool.name} – Frequently Asked Questions</h2>
