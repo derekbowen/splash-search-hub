@@ -56,3 +56,23 @@ export const useNearbyPools = (cityId: string | undefined, currentPoolId: string
     staleTime: 1000 * 60 * 30,
   });
 };
+
+export const useRegionalPools = (stateSlug: string | undefined, citySlug: string | undefined, limit = 8) => {
+  return useQuery({
+    queryKey: ["regional-pools", stateSlug, citySlug],
+    queryFn: async () => {
+      const { data, error } = await supabase
+        .from("public_pools")
+        .select("*, cities!inner(city_name, city_slug, state_slug, state_abbr)")
+        .eq("cities.state_slug", stateSlug!)
+        .neq("cities.city_slug", citySlug!)
+        .eq("is_active", true)
+        .order("rating", { ascending: false })
+        .limit(limit);
+      if (error) throw error;
+      return data;
+    },
+    enabled: !!stateSlug && !!citySlug,
+    staleTime: 1000 * 60 * 30,
+  });
+};
