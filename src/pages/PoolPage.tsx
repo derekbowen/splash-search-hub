@@ -202,6 +202,8 @@ const PoolPage = () => {
         description={description}
         canonical={poolUrl}
         jsonLd={allJsonLd}
+        ogImage={pool.image_url || undefined}
+        ogType="place"
       />
 
       {/* ━━━ Hero ━━━ */}
