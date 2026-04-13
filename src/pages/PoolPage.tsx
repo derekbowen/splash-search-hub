@@ -1,4 +1,5 @@
 import { Link, useParams } from "react-router-dom";
+import FeaturedPrivatePools from "@/components/FeaturedPrivatePools";
 import Layout from "@/components/layout/Layout";
 import SEOHead from "@/components/SEOHead";
 import WaveBg from "@/components/WaveBg";
