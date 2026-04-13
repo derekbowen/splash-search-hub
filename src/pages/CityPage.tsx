@@ -8,6 +8,7 @@ import PoolTypeBadge from "@/components/PoolTypeBadge";
 import { useCityBySlug, useNearbyCities } from "@/hooks/useCities";
 import { useStateBySlug } from "@/hooks/useStates";
 import { usePoolsByCity } from "@/hooks/usePools";
+import FeaturedPrivatePools from "@/components/FeaturedPrivatePools";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
@@ -359,6 +360,16 @@ const CityPage = () => {
       {/* Mobile bottom CTA */}
       <div className="lg:hidden">
         <StickyCtaSidebar cityName={city.city_name} prnmUrl={city.prnm_url || undefined} />
+      </div>
+
+      {/* Featured Private Pools */}
+      <div className="container">
+        <FeaturedPrivatePools
+          stateAbbr={city.state_abbr}
+          count={4}
+          heading={`Private Pools Near ${city.city_name}`}
+          subheading="No crowds, no lanes — just your own private pool by the hour."
+        />
       </div>
 
       {/* Nearby Cities */}

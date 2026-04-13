@@ -4,6 +4,7 @@ import Layout from "@/components/layout/Layout";
 import SEOHead from "@/components/SEOHead";
 import WaveBg from "@/components/WaveBg";
 import CtaBanner from "@/components/CtaBanner";
+import FeaturedPrivatePools from "@/components/FeaturedPrivatePools";
 import { useStateBySlug, useStates } from "@/hooks/useStates";
 import { useCitiesByState } from "@/hooks/useCities";
 import { Badge } from "@/components/ui/badge";
@@ -130,6 +131,16 @@ const StatePage = () => {
           </div>
         )}
       </section>
+
+      {/* Featured Private Pools in this state */}
+      <div className="container">
+        <FeaturedPrivatePools
+          stateAbbr={state.abbreviation}
+          count={4}
+          heading={`Private Pools for Rent in ${state.name}`}
+          subheading={`Skip the crowds — book a private backyard pool from $25/hr.`}
+        />
+      </div>
 
       <CtaBanner stateName={state.name} />
 
