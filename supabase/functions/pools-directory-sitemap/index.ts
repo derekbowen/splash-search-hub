@@ -25,7 +25,7 @@ Deno.serve(async (req) => {
       .order("name");
 
     const today = new Date().toISOString().split("T")[0];
-    const fnUrl = `${Deno.env.get("SUPABASE_URL")}/functions/v1/public-pools-sitemap`;
+    const fnUrl = `${Deno.env.get("SUPABASE_URL")}/functions/v1/pools-directory-sitemap`;
 
     let sitemaps = `  <sitemap>
     <loc>${BASE}/sitemap-hub.xml</loc>
