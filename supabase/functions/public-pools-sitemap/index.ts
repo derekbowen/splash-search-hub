@@ -13,9 +13,10 @@ Deno.serve(async () => {
     Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!
   );
 
-  const [{ data: states }, { data: cities }] = await Promise.all([
+  const [{ data: states }, { data: cities }, { data: pools }] = await Promise.all([
     supabase.from("states").select("slug, created_at").order("name"),
     supabase.from("cities").select("state_slug, city_slug, created_at").order("city_name"),
+    supabase.from("public_pools").select("slug, city_id, updated_at, cities!inner(state_slug, city_slug)").eq("is_active", true).order("name"),
   ]);
 
   const today = new Date().toISOString().split("T")[0];
@@ -44,6 +45,18 @@ Deno.serve(async () => {
     <lastmod>${lastmod}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+  </url>\n`;
+  }
+
+  for (const p of pools ?? []) {
+    const city = (p as any).cities;
+    if (!city) continue;
+    const lastmod = p.updated_at?.split("T")[0] ?? today;
+    urls += `  <url>
+    <loc>${BASE}/public-pools/${city.state_slug}/${city.city_slug}/${p.slug}/</loc>
+    <lastmod>${lastmod}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>\n`;
   }
 
