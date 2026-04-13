@@ -89,6 +89,7 @@ const CityPage = () => {
         description={city.meta_description || `Find public pools in ${city.city_name}, ${city.state_abbr}. See hours, prices & ratings.`}
         canonical={`https://www.poolrentalnearme.com/public-pools/${city.state_slug}/${city.city_slug}/`}
         jsonLd={allJsonLd}
+        ogType="place"
       />
 
       {/* Hero */}
