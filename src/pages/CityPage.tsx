@@ -12,7 +12,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
-import { MapPin, Phone, Globe, Clock, ChevronDown } from "lucide-react";
+import { MapPin, Phone, Globe, Clock, ChevronDown, AlertTriangle, Heart, Users, ExternalLink, Shield } from "lucide-react";
 
 const CityPage = () => {
   const { stateSlug, citySlug } = useParams<{ stateSlug: string; citySlug: string }>();
