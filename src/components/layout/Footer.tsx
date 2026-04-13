@@ -12,7 +12,7 @@ const Footer = () => {
           <div className="col-span-2">
             <h3 className="text-lg font-bold mb-2">PoolRentalNearMe.com</h3>
             <p className="text-sm text-primary-foreground/70 mb-4">
-              The #1 pool rental marketplace. No commissions — just $9/month for hosts.
+              Rent a private pool by the hour. No crowds. No memberships. Just book and swim.
             </p>
             <div className="flex gap-3 mb-4">
               <a href="https://www.facebook.com/poolrentalnearme" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="text-primary-foreground/50 hover:text-primary-foreground transition-colors"><Facebook className="h-5 w-5" /></a>
@@ -37,37 +37,38 @@ const Footer = () => {
           <div>
             <h4 className="font-semibold text-sm mb-3">Get Started</h4>
             <div className="flex flex-col gap-1.5">
-              <a href={`${PRNM}/s`} target="_blank" rel="noopener noreferrer" className="text-xs text-primary-foreground/60 hover:text-primary-foreground transition-colors">Search Listings</a>
+              <a href={`${PRNM}/s`} target="_blank" rel="noopener noreferrer" className="text-xs text-primary-foreground/60 hover:text-primary-foreground transition-colors">Find a Pool</a>
               <a href={`${PRNM}/p/howitworksforguests`} target="_blank" rel="noopener noreferrer" className="text-xs text-primary-foreground/60 hover:text-primary-foreground transition-colors">How It Works</a>
-              <a href={`${PRNM}/l/new`} target="_blank" rel="noopener noreferrer" className="text-xs text-primary-foreground/60 hover:text-primary-foreground transition-colors">List Your Pool Free</a>
-              <a href={`${PRNM}/p/make-money`} target="_blank" rel="noopener noreferrer" className="text-xs text-primary-foreground/60 hover:text-primary-foreground transition-colors">Start a Business</a>
+              <a href={`${PRNM}/l/new`} target="_blank" rel="noopener noreferrer" className="text-xs text-primary-foreground/60 hover:text-primary-foreground transition-colors">List Your Pool</a>
+              <a href={`${PRNM}/p/hosting`} target="_blank" rel="noopener noreferrer" className="text-xs text-primary-foreground/60 hover:text-primary-foreground transition-colors">Become a Host</a>
+              <a href={`${PRNM}/p/all-locations`} target="_blank" rel="noopener noreferrer" className="text-xs text-primary-foreground/60 hover:text-primary-foreground transition-colors">All Locations</a>
               <a href={`${PRNM}/p/swimply-alternative-vs-pool-rental-near-me`} target="_blank" rel="noopener noreferrer" className="text-xs text-primary-foreground/60 hover:text-primary-foreground transition-colors">Swimply Alternative</a>
-              <a href="https://amenities.poolrentalnearme.com/" target="_blank" rel="noopener noreferrer" className="text-xs text-primary-foreground/60 hover:text-primary-foreground transition-colors">Host Amenities</a>
             </div>
           </div>
 
-          {/* Become a Host */}
+          {/* PRNM Corp Products */}
           <div>
-            <h4 className="font-semibold text-sm mb-3">Become a Host</h4>
+            <h4 className="font-semibold text-sm mb-3">Our Products</h4>
             <div className="flex flex-col gap-1.5">
-              <a href={`${PRNM}/l/new`} target="_blank" rel="noopener noreferrer" className="text-xs text-primary-foreground/60 hover:text-primary-foreground transition-colors">List Your Pool Free</a>
-              <a href={`${PRNM}/p/hosting`} target="_blank" rel="noopener noreferrer" className="text-xs text-primary-foreground/60 hover:text-primary-foreground transition-colors">How Hosting Works</a>
-              <a href={`${PRNM}/p/all-locations`} target="_blank" rel="noopener noreferrer" className="text-xs text-primary-foreground/60 hover:text-primary-foreground transition-colors">Find Locations</a>
-              <a href="https://hostpro.poolrentalnearme.com/" target="_blank" rel="noopener noreferrer" className="text-xs text-primary-foreground/60 hover:text-primary-foreground transition-colors">Host Pro Tools</a>
+              <a href={PRNM} target="_blank" rel="noopener noreferrer" className="text-xs text-primary-foreground/60 hover:text-primary-foreground transition-colors">PoolRentalNearMe.com</a>
+              <a href="https://bookmypool.com" target="_blank" rel="noopener noreferrer" className="text-xs text-primary-foreground/60 hover:text-primary-foreground transition-colors">BookMyPool.com</a>
+              <a href="https://www.rentalwaivers.com" target="_blank" rel="noopener noreferrer" className="text-xs text-primary-foreground/60 hover:text-primary-foreground transition-colors">RentalWaivers.com</a>
+              <a href="https://poolhostpro.com" target="_blank" rel="noopener noreferrer" className="text-xs text-primary-foreground/60 hover:text-primary-foreground transition-colors">PoolHostPro.com</a>
+              <a href="https://rentpoolexpert.com" target="_blank" rel="noopener noreferrer" className="text-xs text-primary-foreground/60 hover:text-primary-foreground transition-colors">RentPoolExpert.com</a>
+              <a href="https://memories.poolrentalnearme.com/" target="_blank" rel="noopener noreferrer" className="text-xs text-primary-foreground/60 hover:text-primary-foreground transition-colors">Pool Memories</a>
+            </div>
+          </div>
+
+          {/* Resources & Company */}
+          <div>
+            <h4 className="font-semibold text-sm mb-3">Resources</h4>
+            <div className="flex flex-col gap-1.5">
+              <a href="https://hostpro.poolrentalnearme.com/" target="_blank" rel="noopener noreferrer" className="text-xs text-primary-foreground/60 hover:text-primary-foreground transition-colors">Host Tools (56 Free)</a>
               <a href={`${PRNM}/p/learningacademy`} target="_blank" rel="noopener noreferrer" className="text-xs text-primary-foreground/60 hover:text-primary-foreground transition-colors">Learning Academy</a>
-              <a href="https://connect.poolrentalnearme.com" target="_blank" rel="noopener noreferrer" className="text-xs text-primary-foreground/60 hover:text-primary-foreground transition-colors">Host Connect</a>
-              <a href={`${PRNM}/p/hoa-pool-rental-defense-kit`} target="_blank" rel="noopener noreferrer" className="text-xs text-primary-foreground/60 hover:text-primary-foreground transition-colors">HOA Defense Kit</a>
-            </div>
-          </div>
-
-          {/* Guests & Company */}
-          <div>
-            <h4 className="font-semibold text-sm mb-3">Guests</h4>
-            <div className="flex flex-col gap-1.5">
+              <a href="https://playbook.poolrentalnearme.com/" target="_blank" rel="noopener noreferrer" className="text-xs text-primary-foreground/60 hover:text-primary-foreground transition-colors">Marketing Playbook</a>
               <a href="https://help.poolrentalnearme.com/" target="_blank" rel="noopener noreferrer" className="text-xs text-primary-foreground/60 hover:text-primary-foreground transition-colors">Help Center</a>
-              <a href="https://www.rentalwaivers.com" target="_blank" rel="noopener noreferrer" className="text-xs text-primary-foreground/60 hover:text-primary-foreground transition-colors">Sign a Waiver</a>
-              <a href="https://go.poolrentalnearme.com/radio" target="_blank" rel="noopener noreferrer" className="text-xs text-primary-foreground/60 hover:text-primary-foreground transition-colors">PRNM Radio</a>
-              <a href="https://pool-rental-near-me-store.printify.me" target="_blank" rel="noopener noreferrer" className="text-xs text-primary-foreground/60 hover:text-primary-foreground transition-colors">Store</a>
+              <a href={`${PRNM}/p/hoa-pool-rental-defense-kit`} target="_blank" rel="noopener noreferrer" className="text-xs text-primary-foreground/60 hover:text-primary-foreground transition-colors">HOA Defense Kit</a>
+              <a href="https://connect.poolrentalnearme.com" target="_blank" rel="noopener noreferrer" className="text-xs text-primary-foreground/60 hover:text-primary-foreground transition-colors">Host Connect</a>
             </div>
 
             <h4 className="font-semibold text-sm mt-4 mb-3">Company</h4>
@@ -76,8 +77,7 @@ const Footer = () => {
               <a href={`${PRNM}/p/blog`} target="_blank" rel="noopener noreferrer" className="text-xs text-primary-foreground/60 hover:text-primary-foreground transition-colors">Blog</a>
               <a href="https://www.careers-page.com/10000-solutions-llc" target="_blank" rel="noopener noreferrer" className="text-xs text-primary-foreground/60 hover:text-primary-foreground transition-colors">Careers</a>
               <a href={`${PRNM}/p/investors`} target="_blank" rel="noopener noreferrer" className="text-xs text-primary-foreground/60 hover:text-primary-foreground transition-colors">Investors</a>
-              <a href={`${PRNM}/terms-of-service`} target="_blank" rel="noopener noreferrer" className="text-xs text-primary-foreground/60 hover:text-primary-foreground transition-colors">Terms</a>
-              <a href={`${PRNM}/privacy-policy`} target="_blank" rel="noopener noreferrer" className="text-xs text-primary-foreground/60 hover:text-primary-foreground transition-colors">Privacy</a>
+              <a href="https://www.poolrentalnearme.net" target="_blank" rel="noopener noreferrer" className="text-xs text-primary-foreground/60 hover:text-primary-foreground transition-colors">PRNM Corp</a>
             </div>
           </div>
 
@@ -120,9 +120,11 @@ const Footer = () => {
           <p className="text-xs text-primary-foreground/50">
             © 2026 PRNM Corp. All rights reserved.
           </p>
-          <p className="text-xs text-primary-foreground/50">
-            A 10,000 Solutions LLC company.
-          </p>
+          <div className="flex gap-3 text-xs text-primary-foreground/50">
+            <a href={`${PRNM}/terms-of-service`} target="_blank" rel="noopener noreferrer" className="hover:text-primary-foreground transition-colors">Terms</a>
+            <a href={`${PRNM}/privacy-policy`} target="_blank" rel="noopener noreferrer" className="hover:text-primary-foreground transition-colors">Privacy</a>
+            <span>A 10,000 Solutions LLC company.</span>
+          </div>
         </div>
       </div>
     </footer>
