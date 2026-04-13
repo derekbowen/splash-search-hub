@@ -138,7 +138,9 @@ const CityPage = () => {
                 <div key={pool.id} className="border rounded-lg p-6 hover:shadow-md transition-shadow">
                   <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-2 mb-3">
                     <div>
-                      <h3 className="text-lg font-bold">{pool.name}</h3>
+                      <Link to={`/public-pools/${city.state_slug}/${city.city_slug}/${(pool as any).slug}`} className="hover:text-primary">
+                        <h3 className="text-lg font-bold">{pool.name}</h3>
+                      </Link>
                       <StarRating rating={pool.rating} reviewCount={pool.review_count} />
                     </div>
                     <PoolTypeBadge type={pool.pool_type} />

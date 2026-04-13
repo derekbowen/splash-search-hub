@@ -9,6 +9,7 @@ import NotFound from "./pages/NotFound.tsx";
 import PublicPoolsHub from "./pages/PublicPoolsHub.tsx";
 import StatePage from "./pages/StatePage.tsx";
 import CityPage from "./pages/CityPage.tsx";
+import PoolPage from "./pages/PoolPage.tsx";
 
 const queryClient = new QueryClient();
 
@@ -24,6 +25,7 @@ const App = () => (
             <Route path="/public-pools" element={<PublicPoolsHub />} />
             <Route path="/public-pools/:stateSlug" element={<StatePage />} />
             <Route path="/public-pools/:stateSlug/:citySlug" element={<CityPage />} />
+            <Route path="/public-pools/:stateSlug/:citySlug/:poolSlug" element={<PoolPage />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
