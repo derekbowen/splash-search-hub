@@ -8,6 +8,7 @@ import PoolTypeBadge from "@/components/PoolTypeBadge";
 import { useCityBySlug, useNearbyCities } from "@/hooks/useCities";
 import { useStateBySlug } from "@/hooks/useStates";
 import { usePoolsByCity } from "@/hooks/usePools";
+import FeaturedPrivatePools from "@/components/FeaturedPrivatePools";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
