@@ -1,4 +1,5 @@
 import { Link, useParams } from "react-router-dom";
+import FeaturedPrivatePools from "@/components/FeaturedPrivatePools";
 import Layout from "@/components/layout/Layout";
 import SEOHead from "@/components/SEOHead";
 import WaveBg from "@/components/WaveBg";
@@ -587,6 +588,14 @@ const PoolPage = () => {
                 </a>
               </div>
             </div>
+
+            {/* ━━━ Featured Private Pools ━━━ */}
+            <FeaturedPrivatePools
+              stateAbbr={city.state_abbr}
+              count={4}
+              heading={`Private Pools Near ${city.city_name}`}
+              subheading="No crowds, no lanes — just your own private pool by the hour."
+            />
 
             {/* ━━━ FAQ ━━━ */}
             <div className="max-w-3xl">
