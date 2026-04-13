@@ -4,6 +4,7 @@ import Layout from "@/components/layout/Layout";
 import SEOHead from "@/components/SEOHead";
 import WaveBg from "@/components/WaveBg";
 import CtaBanner from "@/components/CtaBanner";
+import FeaturedPrivatePools from "@/components/FeaturedPrivatePools";
 import { useStateBySlug, useStates } from "@/hooks/useStates";
 import { useCitiesByState } from "@/hooks/useCities";
 import { Badge } from "@/components/ui/badge";
