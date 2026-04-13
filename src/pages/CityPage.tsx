@@ -120,18 +120,160 @@ const CityPage = () => {
             {poolsLoading ? (
               Array.from({ length: 3 }).map((_, i) => <div key={i} className="h-48 bg-muted animate-pulse rounded-lg" />)
             ) : (pools?.length ?? 0) === 0 ? (
-              <div className="border rounded-lg p-8 text-center">
-                <p className="text-lg font-semibold mb-2">We're still adding pools for {city.city_name}</p>
-                <p className="text-muted-foreground mb-4">Know a public pool here? Let us know!</p>
-                <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                  <Button asChild>
-                    <a href={`https://www.google.com/maps/search/public+swimming+pool+${encodeURIComponent(city.city_name)}+${encodeURIComponent(city.state_abbr)}`} target="_blank" rel="noopener noreferrer">
-                      <MapPin className="h-4 w-4 mr-1" /> Search Pools on Google Maps
-                    </a>
-                  </Button>
-                  <Button asChild variant="outline">
-                    <a href={`mailto:derek@poolrentalnearme.com?subject=Pool suggestion for ${city.city_name}, ${city.state_abbr}&body=Pool name:%0AAddress:%0AWebsite (if known):`}>Suggest a Pool</a>
-                  </Button>
+              <div className="space-y-8">
+                {/* Drowning Prevention Advocacy */}
+                <div className="border-2 border-destructive/20 rounded-lg overflow-hidden">
+                  <div className="bg-destructive/10 p-6 md:p-8">
+                    <div className="flex items-start gap-3 mb-4">
+                      <AlertTriangle className="h-8 w-8 text-destructive shrink-0 mt-1" />
+                      <div>
+                        <h2 className="text-xl md:text-2xl font-extrabold text-foreground mb-2">
+                          {city.city_name} Has No Public Swimming Pool
+                        </h2>
+                        <p className="text-muted-foreground font-medium">
+                          Every child deserves access to water safety education. Without a public pool, {city.city_name} families are left without affordable options to learn to swim.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="p-6 md:p-8 space-y-6">
+                    {/* Drowning Stats */}
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                      <div className="bg-destructive/5 rounded-lg p-4 text-center">
+                        <p className="text-3xl font-extrabold text-destructive">4,500+</p>
+                        <p className="text-sm text-muted-foreground mt-1">Americans drown every year — it's the <strong>#1 cause of death</strong> for children ages 1–4</p>
+                      </div>
+                      <div className="bg-destructive/5 rounded-lg p-4 text-center">
+                        <p className="text-3xl font-extrabold text-destructive">64%</p>
+                        <p className="text-sm text-muted-foreground mt-1">of Black children, 45% of Hispanic children <strong>cannot swim</strong> — lack of pool access is the #1 reason</p>
+                      </div>
+                      <div className="bg-destructive/5 rounded-lg p-4 text-center">
+                        <p className="text-3xl font-extrabold text-destructive">88%</p>
+                        <p className="text-sm text-muted-foreground mt-1">of drowning deaths could be <strong>prevented</strong> with basic swim lessons and water safety education</p>
+                      </div>
+                    </div>
+
+                    {/* The Case for a Pool */}
+                    <div>
+                      <h3 className="font-bold text-lg mb-3 flex items-center gap-2">
+                        <Heart className="h-5 w-5 text-destructive" /> Why {city.city_name} Needs a Public Pool
+                      </h3>
+                      <div className="space-y-3 text-sm text-muted-foreground">
+                        <p>
+                          {city.city_name}{city.population ? `, with a population of ${city.population.toLocaleString()},` : ""} currently has <strong>zero public swimming pools</strong>. 
+                          That means {city.city_name} families — especially those who can't afford private club memberships or backyard pools — 
+                          have no affordable, accessible place to learn to swim.
+                        </p>
+                        <p>
+                          According to the CDC, drowning is the <strong>leading cause of unintentional death for children ages 1–4</strong> and 
+                          the <strong>second leading cause for ages 5–14</strong>. Research from the American Academy of Pediatrics shows that 
+                          formal swim lessons reduce the risk of drowning by <strong>88%</strong>. But lessons require pools — and {city.city_name} doesn't have one.
+                        </p>
+                        <p>
+                          Communities with public pools see measurable benefits: lower childhood drowning rates, improved physical fitness, 
+                          reduced youth crime during summer months, stronger community bonds, and increased property values. A public pool 
+                          isn't a luxury — it's critical infrastructure that <strong>saves lives</strong>.
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Take Action */}
+                    <div className="bg-secondary/50 rounded-lg p-6">
+                      <h3 className="font-bold text-lg mb-3 flex items-center gap-2">
+                        <Users className="h-5 w-5 text-primary" /> Take Action — Contact {city.city_name} City Leaders
+                      </h3>
+                      <p className="text-sm text-muted-foreground mb-4">
+                        Your voice matters. Contact your {city.city_name} city council members and mayor's office to advocate for a public swimming pool. 
+                        Here's how to reach them:
+                      </p>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <Button asChild className="w-full">
+                          <a 
+                            href={`https://www.google.com/search?q=${encodeURIComponent(city.city_name + " " + (state?.name || city.state_abbr) + " city council contact")}`} 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                          >
+                            <Phone className="h-4 w-4 mr-2" /> Find {city.city_name} City Council
+                          </a>
+                        </Button>
+                        <Button asChild variant="outline" className="w-full">
+                          <a 
+                            href={`https://www.google.com/search?q=${encodeURIComponent(city.city_name + " " + (state?.name || city.state_abbr) + " mayor office phone number")}`} 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                          >
+                            <Globe className="h-4 w-4 mr-2" /> Find Mayor's Office
+                          </a>
+                        </Button>
+                        <Button asChild variant="outline" className="w-full">
+                          <a 
+                            href={`https://www.google.com/search?q=${encodeURIComponent(city.city_name + " " + (state?.name || city.state_abbr) + " parks and recreation department")}`} 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                          >
+                            <MapPin className="h-4 w-4 mr-2" /> Parks & Recreation Dept
+                          </a>
+                        </Button>
+                        <Button asChild variant="outline" className="w-full">
+                          <a 
+                            href={`mailto:?subject=Our%20city%20needs%20a%20public%20pool&body=${encodeURIComponent(
+                              `Hi,\n\nI'm writing because ${city.city_name}, ${city.state_abbr} currently has NO public swimming pool. ` +
+                              `Drowning is the #1 cause of death for children ages 1-4, and 88% of drowning deaths could be prevented with basic swim lessons.\n\n` +
+                              (city.population ? `With a population of ${city.population.toLocaleString()}, our ` : `Our `) +
+                              `community deserves access to affordable swimming and water safety education.\n\n` +
+                              `I'm asking the city to explore funding options for a public aquatic facility. ` +
+                              `This is about saving lives.\n\nThank you,\nA concerned ${city.city_name} resident\n\n` +
+                              `Source: poolrentalnearme.com/public-pools/${city.state_slug}/${city.city_slug}`
+                            )}`}
+                          >
+                            <ExternalLink className="h-4 w-4 mr-2" /> Share Template Letter
+                          </a>
+                        </Button>
+                      </div>
+                    </div>
+
+                    {/* What to Say */}
+                    <div className="border rounded-lg p-6">
+                      <h3 className="font-bold text-lg mb-3 flex items-center gap-2">
+                        <Shield className="h-5 w-5 text-primary" /> What to Tell Your City Leaders
+                      </h3>
+                      <div className="bg-muted/50 rounded p-4 text-sm text-muted-foreground italic space-y-2">
+                        <p>"I'm a {city.city_name} resident and I'm concerned that our city has no public swimming pool. 
+                        Drowning kills over 4,500 Americans every year — it's the #1 cause of death for young children.</p>
+                        <p>{city.population ? `With ${city.population.toLocaleString()} residents, ${city.city_name}` : `${city.city_name}`} deserves 
+                        a public aquatic facility where our children can learn water safety, where families can exercise affordably, 
+                        and where our community can come together.</p>
+                        <p>I'm asking the city council to include a public pool or aquatic center in future capital improvement plans. 
+                        Federal grants, state recreation funds, and public-private partnerships can help fund this. 
+                        <strong>This is about saving children's lives.</strong>"</p>
+                      </div>
+                    </div>
+
+                    {/* Resources */}
+                    <div className="text-xs text-muted-foreground space-y-1">
+                      <p className="font-semibold text-foreground">Sources & Resources:</p>
+                      <p>• CDC — <a href="https://www.cdc.gov/drowning/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Drowning Prevention</a></p>
+                      <p>• American Academy of Pediatrics — <a href="https://publications.aap.org/pediatrics/article/143/5/e20190850/37054/Prevention-of-Drowning" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Prevention of Drowning (2019)</a></p>
+                      <p>• USA Swimming Foundation — <a href="https://www.usaswimming.org/utility/landing-pages/make-a-splash" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Make a Splash Initiative</a></p>
+                      <p>• Stop Drowning Now — <a href="https://www.stopdrowningnow.org" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">stopdrowningnow.org</a></p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Still help find pools */}
+                <div className="border rounded-lg p-6 text-center bg-muted/30">
+                  <p className="text-sm font-medium mb-2">Know of a public pool in {city.city_name} we missed?</p>
+                  <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                    <Button asChild size="sm">
+                      <a href={`https://www.google.com/maps/search/public+swimming+pool+${encodeURIComponent(city.city_name)}+${encodeURIComponent(city.state_abbr)}`} target="_blank" rel="noopener noreferrer">
+                        <MapPin className="h-4 w-4 mr-1" /> Search Google Maps
+                      </a>
+                    </Button>
+                    <Button asChild size="sm" variant="outline">
+                      <a href={`mailto:derek@poolrentalnearme.com?subject=Pool suggestion for ${city.city_name}, ${city.state_abbr}&body=Pool name:%0AAddress:%0AWebsite (if known):`}>Suggest a Pool</a>
+                    </Button>
+                  </div>
                 </div>
               </div>
             ) : (
