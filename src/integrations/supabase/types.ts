@@ -118,6 +118,7 @@ export type Database = {
           price_notes: string | null
           rating: number | null
           review_count: number | null
+          slug: string
           state: string | null
           updated_at: string
           website: string | null
@@ -146,6 +147,7 @@ export type Database = {
           price_notes?: string | null
           rating?: number | null
           review_count?: number | null
+          slug: string
           state?: string | null
           updated_at?: string
           website?: string | null
@@ -174,6 +176,7 @@ export type Database = {
           price_notes?: string | null
           rating?: number | null
           review_count?: number | null
+          slug?: string
           state?: string | null
           updated_at?: string
           website?: string | null
