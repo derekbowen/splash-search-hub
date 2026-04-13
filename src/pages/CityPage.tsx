@@ -91,6 +91,8 @@ const CityPage = () => {
         canonical={`https://www.poolrentalnearme.com/public-pools/${city.state_slug}/${city.city_slug}/`}
         jsonLd={allJsonLd}
         ogType="place"
+        geoRegion={`US-${city.state_abbr}`}
+        geoPlacename={`${city.city_name}, ${city.state_abbr}`}
       />
 
       {/* Hero */}
