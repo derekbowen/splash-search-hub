@@ -19,8 +19,9 @@ const Header = () => {
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
-    if (searchQuery.trim()) {
-      navigate(`/public-pools?q=${encodeURIComponent(searchQuery.trim())}`);
+    const q = searchQuery.trim();
+    if (q) {
+      window.location.href = `${PRNM}/s?location=${encodeURIComponent(q)}`;
       setSearchQuery("");
     }
   };
